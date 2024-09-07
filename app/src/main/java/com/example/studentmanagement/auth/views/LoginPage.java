@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.studentmanagement.AddClass;
 import com.example.studentmanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,6 +69,9 @@ public class LoginPage extends AppCompatActivity {
                             Log.d("success", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginPage.this,"success",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginPage.this, AddClass.class);
+                            startActivity(intent);
+
 
                         } else {
                             // If sign in fails, display a message to the user.
