@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,19 +15,22 @@
         android:theme="@style/Theme.StudentManagement"
         tools:targetApi="31">
         <activity
-            android:name=".forgetpass"
+            android:name=".home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".auth.views.forgetpass"
             android:exported="false" />
         <activity
-            android:name=".LoginPage"
+            android:name=".auth.views.SignUp"
             android:exported="false" />
         <activity
-            android:name=".splashscreen"
+            android:name=".auth.views.LoginPage"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splashscreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
