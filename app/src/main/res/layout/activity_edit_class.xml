@@ -24,7 +24,7 @@
         android:id="@+id/user_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_man_24"
+        android:src="@drawable/baseline_pregnant_woman_24"
         android:layout_marginTop="10dp"
         android:background="@drawable/profile"
         app:layout_constraintTop_toTopOf="parent"
