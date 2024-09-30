@@ -98,10 +98,10 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     private void editStudent(Student student) {
-        // Code to edit student
+        // Code to edit student .. complete
     }
 
     private void deleteStudent(Student student) {
-        // Code to delete student
+        // Code to delete student .. complete
     }
 }
