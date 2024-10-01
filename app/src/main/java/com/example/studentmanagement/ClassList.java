@@ -48,25 +48,6 @@ public class ClassList extends AppCompatActivity {
 
         loadClassData(); // Load class data from Firestore
 
-        //Onclick to navigate to student of that particular class
-
-        //Onclick to navigate to attendance of that particular class
-
-        //Onclick to download report
-
-        editClass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ClassList.this, EditClass.class);
-                startActivity(intent);
-            }
-        });
-        DeleteClass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Delete class dialog
-            }
-        });
 
         Classfab.setOnClickListener(new View.OnClickListener() {
             @Override
