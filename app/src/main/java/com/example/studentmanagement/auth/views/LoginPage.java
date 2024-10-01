@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studentmanagement.AddClass;
 import com.example.studentmanagement.R;
+import com.example.studentmanagement.StudentActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
@@ -69,7 +70,7 @@ public class LoginPage extends AppCompatActivity {
                             Log.d("success", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginPage.this,"success",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginPage.this, AddClass.class);
+                            Intent intent = new Intent(LoginPage.this, StudentActivity.class);
                             startActivity(intent);
 
 

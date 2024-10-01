@@ -35,8 +35,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         Student student = students.get(position);
         holder.name.setText(student.getName());
         holder.roll.setText("Roll: " + student.getRoll());
-        holder.className.setText("Class: " + student.getClassName());
-        holder.program.setText("Program: " + student.getProgram());
+        //holder.className.setText("Class: " + student.getClassName());
+        //holder.program.setText("Program: " + student.getProgram());
 
         holder.editIcon.setOnClickListener(v -> editListener.onEdit(student));
         holder.deleteIcon.setOnClickListener(v -> deleteListener.onDelete(student));
@@ -60,8 +60,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             super(itemView);
             name = itemView.findViewById(R.id.studentName);
             roll = itemView.findViewById(R.id.studentRoll);
-            className = itemView.findViewById(R.id.studentClass);
-            program = itemView.findViewById(R.id.studentProgram);
+            //className = itemView.findViewById(R.id.studentClass);
+            //program = itemView.findViewById(R.id.studentProgram);
             editIcon = itemView.findViewById(R.id.editIcon);
             deleteIcon = itemView.findViewById(R.id.deleteIcon);
         }
