@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_300">#8E44AD</color>
+    <color name="drawable_color_light">#FFF</color>
+    <color name="drawable_color_dark">#290837</color>
+    <color name="drawable_color_light2">#FBE5FF</color> <!-- for light mode -->
+    <color name="drawable_color_dark2">#FFFFFF</color><!-- for dark mode -->
 </resources>

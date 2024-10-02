@@ -3,6 +3,7 @@ package com.example.studentmanagement;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -20,6 +21,7 @@ public class ClassList extends AppCompatActivity {
     RecyclerView recyclerView1;
     List<Classes> classList;
     ClassAdapter adapter;
+    ImageView settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ClassList extends AppCompatActivity {
 
         recyclerView1 = findViewById(R.id.recyclerView_class);
         Classfab = findViewById(R.id.fab_class);
+        settings = findViewById(R.id.imageView3);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(ClassList.this, 1);
         recyclerView1.setLayoutManager(gridLayoutManager);
@@ -37,6 +40,14 @@ public class ClassList extends AppCompatActivity {
         recyclerView1.setAdapter(adapter);
 
         loadClassData(); // Load class data from Firestore
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassList.this, Settings.class);
+                startActivity(intent);
+            }
+        });
 
         // Floating action button to add new class
         Classfab.setOnClickListener(view -> {

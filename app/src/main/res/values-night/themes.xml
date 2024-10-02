@@ -3,5 +3,35 @@
     <style name="Base.Theme.StudentManagement" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_300</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/drawable_color_dark</item>
+        <item name="colorOnSecondaryContainer">@color/drawable_color_dark2</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+    </style>
+
+    <!--Dark Mode -->
+    <!--Screen background if dark mode on -->
+    <style name="SCREEN">
+        <item name="android:background">#232323</item>
+    </style>
+
+    <!--Text background if dark mode on -->
+    <style name="TEXT">
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="HINT">
+        <item name="android:textColorHint">#49414B</item>
+    </style>
+
+    <!--Button background if dark mode on -->
+    <style name="BUTTON">
+        <item name="android:background">@color/purple_300</item>
+        <item name="android:textColor">#FFF</item>
     </style>
 </resources>
