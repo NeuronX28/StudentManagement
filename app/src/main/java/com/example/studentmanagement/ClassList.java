@@ -45,6 +45,12 @@ public class ClassList extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadClassData(); // Reload class data when coming back to this activity
+    }
+
     private void loadClassData() {
         db = FirebaseFirestore.getInstance();
         db.collection("classes")
@@ -53,11 +59,16 @@ public class ClassList extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         classList.clear();
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            String className = document.getString("className");
-                            classList.add(new Classes(className));
+                            // Get the document ID (classId) and className from Firestore
+                            String classId = document.getId();  // This is the document ID
+                            String className = document.getString("className");  // Field in Firestore document
+
+                            // Add the new Classes object with both classId and className
+                            classList.add(new Classes(classId, className));
                         }
                         adapter.notifyDataSetChanged();
                     }
                 });
     }
+
 }

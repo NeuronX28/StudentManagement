@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -56,15 +59,14 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
         });
 
         holder.editClass.setOnClickListener(v -> {
-            //Intent intent = new Intent(context, EditClassActivity.class);
-            //intent.putExtra("className", currentClass.getClassName_class());
-            //context.startActivity(intent);
+            Intent intent = new Intent(context, EditClass.class);
+            intent.putExtra("CLASS_ID", currentClass.getClassId()); // Pass the class ID
+            context.startActivity(intent);
         });
 
+        // Handle delete button click
         holder.deleteClass.setOnClickListener(v -> {
-            //Intent intent = new Intent(context, DeleteClassActivity.class);
-            //intent.putExtra("className", currentClass.getClassName_class());
-            //context.startActivity(intent);
+            deleteClass(currentClass.getClassId(), position); // Call the delete method
         });
     }
 
@@ -75,6 +77,29 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
 
     public void searchDataList(List<Classes> searchList) {
         this.classList = searchList;
+    }
+
+    // Method to delete a class from Firestore and RecyclerView
+    private void deleteClass(String classId, int position) {
+        // Get Firestore instance
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Delete the class document from Firestore
+        db.collection("classes").document(classId)
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    // Remove the class from the local list
+                    classList.remove(position);
+
+                    // Notify the adapter of the change
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, classList.size());
+
+                    Toast.makeText(context, "Class deleted successfully!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(context, "Error deleting class: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -88,7 +113,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
             studAttendance = itemView.findViewById(R.id.studAttnd);
             report = itemView.findViewById(R.id.report);
             editClass = itemView.findViewById(R.id.editClass);
-            deleteClass = itemView.findViewById(R.id.deleteClass);
+            deleteClass = itemView.findViewById(R.id.deleteClass);  // Ensure this button exists in your XML layout
         }
     }
 }

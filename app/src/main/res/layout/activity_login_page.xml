@@ -108,6 +108,7 @@
             android:fontFamily="@font/poppins"
             android:hint="enter your password"
             android:background="@drawable/roundshape"
+            android:inputType="textPassword"
             />
         <TextView
             android:id="@+id/forgot"
