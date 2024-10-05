@@ -51,6 +51,7 @@ public class AddClass extends AppCompatActivity {
             public void onClick(View v) {
                 // Clear all fields or close the activity
                 clearFields();
+                finish();
             }
         });
     }
