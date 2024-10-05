@@ -60,8 +60,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             super(itemView);
             name = itemView.findViewById(R.id.studentName);
             roll = itemView.findViewById(R.id.studentRoll);
-            //className = itemView.findViewById(R.id.studentClass);
-            //program = itemView.findViewById(R.id.studentProgram);
+            className = itemView.findViewById(R.id.studentClass);
+            program = itemView.findViewById(R.id.studentProgram);
             editIcon = itemView.findViewById(R.id.editIcon);
             deleteIcon = itemView.findViewById(R.id.deleteIcon);
         }
