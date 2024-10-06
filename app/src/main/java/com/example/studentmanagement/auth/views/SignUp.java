@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
 
-    private EditText email, password, name, phoneno, confirmpassword;
+    private EditText email, password, name,designation,qualification, phoneno, confirmpassword;
     private Button register;
     private FirebaseAuth mAuth;
 
@@ -37,6 +37,8 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.passsign);
         name = findViewById(R.id.namesign);
         phoneno = findViewById(R.id.phonesign);
+        designation = findViewById(R.id.desigSign);
+        qualification = findViewById(R.id.QualSign);
         confirmpassword = findViewById(R.id.passconfirmsign); // Make sure you have this field in your XML
         register = findViewById(R.id.register);
 
@@ -46,18 +48,20 @@ public class SignUp extends AppCompatActivity {
         // Set up register button listener
         register.setOnClickListener(v -> {
             String nameInput = name.getText().toString().trim();
+            String desigInput = designation.getText().toString();
+            String qualInput = qualification.getText().toString();
             String emailInput = email.getText().toString().trim();
             String phonenoInput = phoneno.getText().toString().trim();
             String passwordInput = password.getText().toString().trim();
             String confirmpasswordInput = confirmpassword.getText().toString().trim();
 
-            dosignup(nameInput, emailInput, phonenoInput, passwordInput, confirmpasswordInput);
+            dosignup(nameInput, desigInput, qualInput, emailInput, phonenoInput, passwordInput, confirmpasswordInput);
         });
     }
 
-    private void dosignup(String name, String emailInput, String phonenoInput, String passwordInput, String confirmpasswordInput) {
+    private void dosignup(String name, String desigInput, String qualInput, String emailInput, String phonenoInput, String passwordInput, String confirmpasswordInput) {
         // Check if any field is empty
-        if (name.isEmpty() || emailInput.isEmpty() || phonenoInput.isEmpty() || passwordInput.isEmpty() || confirmpasswordInput.isEmpty()) {
+        if (name.isEmpty() || desigInput.isEmpty() || qualInput.isEmpty() || emailInput.isEmpty() || phonenoInput.isEmpty() || passwordInput.isEmpty() || confirmpasswordInput.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -101,6 +105,8 @@ public class SignUp extends AppCompatActivity {
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         Map<String, Object> user = new HashMap<>();
                         user.put("name", name);
+                        user.put("designation", desigInput);
+                        user.put("qualification", qualInput);
                         user.put("email", emailInput);
                         user.put("phoneno", phonenoInput);
 

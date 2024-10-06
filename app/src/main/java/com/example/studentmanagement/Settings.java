@@ -87,7 +87,7 @@ public class Settings extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Settings.this, ClassList.class);
                 startActivity(intent);
-                finish();
+
             }
         });
     }

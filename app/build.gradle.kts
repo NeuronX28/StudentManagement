@@ -49,4 +49,9 @@ dependencies {
     // Firebase services
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-firestore")
+    implementation ("com.google.firebase:firebase-storage:20.0.1")
+
+    //Glide Dependency
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+
 }

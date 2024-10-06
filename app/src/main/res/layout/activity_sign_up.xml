@@ -81,7 +81,55 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="60dp"
-                android:text="Emails"
+                android:text="Designation"
+                style="@style/TEXT"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/desigSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/roundshape"
+                android:backgroundTint="#FBE5FF"
+                android:fontFamily="@font/poppins"
+                android:hint="enter your designation"
+                style="@style/HINT"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="60dp"
+                android:text="Qualification"
+                style="@style/TEXT"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/QualSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/roundshape"
+                android:backgroundTint="#FBE5FF"
+                android:fontFamily="@font/poppins"
+                android:hint="enter your qualification"
+                style="@style/HINT"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="60dp"
+                android:text="Email"
                 style="@style/TEXT"
                 android:textSize="13sp" />
 
