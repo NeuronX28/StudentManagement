@@ -24,7 +24,6 @@ import com.example.studentmanagement.auth.views.LoginPage;
 public class Settings extends AppCompatActivity {
 
 
-    ToggleButton btnToggleDark;
     LinearLayout logOut;
     ImageView back;
     private SwitchCompat switchDarkMode;
