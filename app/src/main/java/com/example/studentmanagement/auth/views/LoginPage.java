@@ -27,17 +27,31 @@ public class LoginPage extends AppCompatActivity {
     private Button login;
     private FirebaseAuth mAuth;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        TextView forgetPass = findViewById(R.id.forgot);
-        TextView signUp = findViewById(R.id.signup);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+        // Check if the user is already signed in
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            // User is already signed in, go directly to ClassList
+            Intent intent = new Intent(LoginPage.this, ClassList.class);
+            startActivity(intent);
+            finish(); // Close the login activity
+            return;
+        }
+
+        // If the user is not signed in, proceed with the normal login flow
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+
+        TextView forgetPass = findViewById(R.id.forgot);
+        TextView signUp = findViewById(R.id.signup);
 
         forgetPass.setOnClickListener(v -> {
             startActivity(new Intent(LoginPage.this, forgetpass.class));
@@ -51,7 +65,7 @@ public class LoginPage extends AppCompatActivity {
             String emailText = email.getText().toString().trim();
             String passwordText = password.getText().toString().trim();
 
-            if (emailText.isEmpty() || passwordText.isEmpty()){
+            if (emailText.isEmpty() || passwordText.isEmpty()) {
                 email.setError("Email is required");
                 password.setError("Password is required");
                 return;
@@ -59,6 +73,7 @@ public class LoginPage extends AppCompatActivity {
             authenticateUser(emailText, passwordText);
         });
     }
+
     private void authenticateUser(String email, String password) {
 
         mAuth.signInWithEmailAndPassword(email, password)

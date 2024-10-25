@@ -9,76 +9,78 @@
     tools:context=".EditClass">
 
     <!-- Back Button ImageView -->
-    <ImageView
-        android:id="@+id/go_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        android:layout_marginTop="10dp"
-        android:paddingStart="10dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- User Icon ImageView -->
-    <ImageView
-        android:id="@+id/user_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_pregnant_woman_24"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/profile"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10dp" />
 
     <!-- Title TextView -->
+
+    <!-- Background Shape LinearLayout -->
+
+    <ImageView
+        android:id="@+id/go_back"
+        android:layout_width="35dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:paddingStart="10dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnSurface" />
+
     <TextView
-        android:fontFamily="@font/poppins_bold"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Edit Class"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TEXT"/>
 
-    <!-- Background Shape LinearLayout -->
     <LinearLayout
-        android:gravity="center_vertical"
+
+        android:id="@+id/linearLayout5"
         android:layout_width="292dp"
         android:layout_height="326dp"
         android:layout_marginTop="44dp"
-        android:background="@drawable/roundshape"
+
+        android:gravity="center_vertical"
         android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
-        android:padding="16dp"> <!-- Added padding for better spacing -->
+        style="@style/BOX"> <!-- Added padding for better spacing -->
 
         <!-- New Class Name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            >
 
             <TextView
-                android:fontFamily="@font/poppins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="33dp"
                 android:layout_weight="1"
-                android:text="New Class Name:"
-                android:layout_marginEnd="10dp" />
+                android:fontFamily="@font/poppins"
+                android:text="Class Name:"
+                style="@style/TEXT"/>
 
             <EditText
                 android:id="@+id/class_name"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ffffff" />
+                android:background="#ffffff"
+                style="@style/ETEXT"/>
         </LinearLayout>
 
         <!-- Course Name -->
@@ -89,118 +91,130 @@
             android:orientation="horizontal">
 
             <TextView
-                android:fontFamily="@font/poppins"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:text="Course Name:" />
+                android:layout_marginEnd="22dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:text="Course Name:"
+                style="@style/TEXT"/>
 
             <EditText
                 android:id="@+id/course_name"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ffffff" />
+                android:background="#ffffff"
+                style="@style/ETEXT"/>
         </LinearLayout>
 
         <!-- Class and Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:fontFamily="@font/poppins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Class &amp; Section:"
-                android:layout_marginEnd="10dp" />
+                android:layout_marginEnd="73dp"
+                android:fontFamily="@font/poppins"
+                android:text="Section:"
+                style="@style/TEXT"/>
 
             <EditText
                 android:id="@+id/section"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ffffff" />
+                android:background="#ffffff"
+                style="@style/ETEXT"/>
         </LinearLayout>
 
         <!-- Class Start Date -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:fontFamily="@font/poppins"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
                 android:text="Class Start Date:"
-                android:layout_marginEnd="10dp" />
+                style="@style/TEXT"/>
 
             <EditText
                 android:id="@+id/start_date"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ffffff" />
+                android:background="#ffffff"
+                style="@style/ETEXT"/>
         </LinearLayout>
 
         <!-- Class End Date -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:fontFamily="@font/poppins"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
                 android:text="Class End Date:"
-                android:layout_marginEnd="10dp" />
+                style="@style/TEXT"/>
 
             <EditText
                 android:id="@+id/end_date"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ffffff" />
+                android:background="#ffffff"
+                style="@style/ETEXT"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <!-- Save Button -->
-    <Button
-        android:fontFamily="@font/poppins"
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginBottom="156dp"
-        android:backgroundTint="#8E44AD"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Cancel Button -->
     <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8E44AD"
         android:fontFamily="@font/poppins"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.682" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="156dp"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="#F0ECF0"
+        android:fontFamily="@font/poppins"
         android:text="Cancel"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toEndOf="@id/button" />
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.681" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

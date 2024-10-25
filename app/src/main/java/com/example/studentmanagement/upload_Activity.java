@@ -2,6 +2,7 @@ package com.example.studentmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,10 +32,17 @@ public class upload_Activity extends AppCompatActivity {
         uploadname = findViewById(R.id.uploadname);
         uploadclass = findViewById(R.id.uploadclass);
         saveButton = findViewById(R.id.saveButton);
+        Button cancelButton = findViewById(R.id.cancelButton);
 
         // Set up click listener for save button
         saveButton.setOnClickListener(v -> saveClassData());
+        cancelButton.setOnClickListener(v->
+        {
+            finish();
+        });
     }
+
+
 
     private void saveClassData() {
         // Get the data from the EditText fields
@@ -61,9 +69,11 @@ public class upload_Activity extends AppCompatActivity {
                 .add(studentData)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(this, "Student data added successfully!", Toast.LENGTH_SHORT).show();
-                    // After successfully saving the data, navigate to the next activity
-                    Intent intent = new Intent(this, showActivity.class);
+                    // After successfully saving the data, navigate to the StudentActivity
+                    Intent intent = new Intent(this, StudentActivity.class);
+                    intent.putExtra("className", className); // Pass class name back
                     startActivity(intent);
+                    finish(); // Optional: close the upload activity
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error adding student data: " + e.getMessage(), Toast.LENGTH_SHORT).show();

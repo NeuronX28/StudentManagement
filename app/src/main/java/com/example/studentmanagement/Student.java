@@ -6,6 +6,7 @@ public class Student {
     private String className;
     private String program;
 
+    // Constructor
     public Student(String roll, String name, String className, String program) {
         this.roll = roll;
         this.name = name;
@@ -13,6 +14,7 @@ public class Student {
         this.program = program;
     }
 
+    // Getters
     public String getRoll() {
         return roll;
     }

@@ -3,21 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/spalsh"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/spalsh"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentManagement"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".ReportAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AttendanceAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".AttendanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".showActivity"
+            android:exported="false" />
+        <activity
+            android:name=".upload_Activity"
+            android:exported="false" />
         <activity
             android:name=".StudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
             android:exported="false" />
         <activity
             android:name=".ClassList"
@@ -28,8 +58,6 @@
         <activity
             android:name=".AddClass"
             android:exported="false" />
-
-
         <activity
             android:name=".home.HomeActivity"
             android:exported="false" />
@@ -45,6 +73,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".splashscreen"
             android:exported="true">

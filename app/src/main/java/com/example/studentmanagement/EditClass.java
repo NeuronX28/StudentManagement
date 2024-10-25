@@ -1,10 +1,12 @@
 package com.example.studentmanagement;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,10 @@ public class EditClass extends AppCompatActivity {
     private FirebaseFirestore db;
     private String classId; // Class ID to edit
     private ListenerRegistration registration; // For Firestore listener
+    private ImageView back;
+
+    // Variables to store original values
+    private String originalClassName, originalCourseName, originalSection, originalStartDate, originalEndDate;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,6 +44,12 @@ public class EditClass extends AppCompatActivity {
         sectionEditText = findViewById(R.id.section);
         startDateEditText = findViewById(R.id.start_date);
         endDateEditText = findViewById(R.id.end_date);
+        back = findViewById(R.id.go_back);
+
+        back.setOnClickListener(view -> {
+            Intent intent = new Intent(EditClass.this, ClassList.class);
+            startActivity(intent);
+        });
 
         // Bind Buttons
         saveButton = findViewById(R.id.button);
@@ -76,18 +88,18 @@ public class EditClass extends AppCompatActivity {
             }
 
             if (documentSnapshot != null && documentSnapshot.exists()) {
-                String className = documentSnapshot.getString("className");
-                String courseName = documentSnapshot.getString("courseName");
-                String section = documentSnapshot.getString("section");
-                String startDate = documentSnapshot.getString("startDate");
-                String endDate = documentSnapshot.getString("endDate");
+                originalClassName = documentSnapshot.getString("className");
+                originalCourseName = documentSnapshot.getString("courseName");
+                originalSection = documentSnapshot.getString("section");
+                originalStartDate = documentSnapshot.getString("startDate");
+                originalEndDate = documentSnapshot.getString("endDate");
 
                 // Set data to EditText fields
-                classNameEditText.setText(className);
-                courseNameEditText.setText(courseName);
-                sectionEditText.setText(section);
-                startDateEditText.setText(startDate);
-                endDateEditText.setText(endDate);
+                classNameEditText.setText(originalClassName);
+                courseNameEditText.setText(originalCourseName);
+                sectionEditText.setText(originalSection);
+                startDateEditText.setText(originalStartDate);
+                endDateEditText.setText(originalEndDate);
             } else {
                 Toast.makeText(EditClass.this, "Class not found!", Toast.LENGTH_SHORT).show();
                 finish(); // Close activity if class not found
@@ -109,23 +121,30 @@ public class EditClass extends AppCompatActivity {
             return;
         }
 
-        // Create a map to store the updated data
-        Map<String, Object> classData = new HashMap<>();
-        classData.put("className", className);
-        classData.put("courseName", courseName);
-        classData.put("section", section);
-        classData.put("startDate", startDate);
-        classData.put("endDate", endDate);
+        // Check if any changes were made
+        if (className.equals(originalClassName) && courseName.equals(originalCourseName) &&
+                section.equals(originalSection) && startDate.equals(originalStartDate) && endDate.equals(originalEndDate)) {
+            // No changes were made
+            Toast.makeText(EditClass.this, "No changes were made.", Toast.LENGTH_SHORT).show();
+        } else {
+            // Create a map to store the updated data
+            Map<String, Object> classData = new HashMap<>();
+            classData.put("className", className);
+            classData.put("courseName", courseName);
+            classData.put("section", section);
+            classData.put("startDate", startDate);
+            classData.put("endDate", endDate);
 
-        // Update data in Firestore
-        db.collection("classes").document(classId)
-                .set(classData) // Using set() to overwrite the document
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(EditClass.this, "Class updated successfully!", Toast.LENGTH_SHORT).show();
-                    clearFields(); // Clear the form after saving
-                    finish(); // Close the activity
-                })
-                .addOnFailureListener(e -> Toast.makeText(EditClass.this, "Error updating class: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            // Update data in Firestore
+            db.collection("classes").document(classId)
+                    .set(classData) // Using set() to overwrite the document
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(EditClass.this, "Class updated successfully!", Toast.LENGTH_SHORT).show();
+                        clearFields(); // Clear the form after saving
+                        finish(); // Close the activity
+                    })
+                    .addOnFailureListener(e -> Toast.makeText(EditClass.this, "Error updating class: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+        }
     }
 
     // Clear all input fields

@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.views.forgetpass"
     android:background="#8E44AD"
-    >
+    tools:context=".auth.views.forgetpass">
 
+    <!-- Back Button -->
     <ImageView
         android:id="@+id/go_back"
         android:layout_width="wrap_content"
@@ -18,8 +18,9 @@
         android:src="@drawable/baseline_arrow_back_ios_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+         />
 
+    <!-- Logo Section -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="100dp"
@@ -35,12 +36,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/img"
-
-            />
-
+            android:src="@drawable/img" />
     </LinearLayout>
 
+    <!-- Reset Password Form -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginTop="60dp"
@@ -50,9 +49,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+        <!-- Reset Password Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,11 +59,10 @@
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:text="Reset Password"
-            android:textColor="@color/black"
-            android:textSize="20dp"
+            style="@style/TEXT"
+            android:textSize="20dp" />
 
-            />
-
+        <!-- Email Label -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,10 +70,12 @@
             android:fontFamily="@font/poppins"
             android:paddingStart="60dp"
             android:text="Email"
-            android:textColor="@color/black"
+            style="@style/TEXT"
             android:textSize="13sp" />
 
+        <!-- Email Input -->
         <EditText
+            android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -83,48 +83,14 @@
             android:layout_marginStart="55dp"
             android:layout_marginEnd="55dp"
             android:padding="8dp"
-            android:hint="abc@gmail.com"
+            android:hint="Enter your email"
             android:background="@drawable/roundshape"
-            android:backgroundTint="#FBE5FF"
-            />
+            style="@style/ETEXT"
+            android:backgroundTint="#FBE5FF" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/poppins"
-            android:paddingStart="60dp"
-            android:text="Password"
-            android:textColor="@color/black"
-            android:textSize="13sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:backgroundTint="#FBE5FF"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginEnd="55dp"
-            android:padding="8dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:hint="enter your password"
-            android:background="@drawable/roundshape"
-            />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:backgroundTint="#FBE5FF"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginEnd="55dp"
-            android:padding="8dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:hint="confirm your password"
-            android:background="@drawable/roundshape"
-            />
-
+        <!-- Reset Password Button -->
         <Button
+            android:id="@+id/reset_password_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -132,14 +98,9 @@
             android:layout_marginTop="30dp"
             android:padding="15dp"
             android:fontFamily="@font/poppins"
-            android:text="Update your password"
+            android:text="Reset Password"
             android:backgroundTint="#8E44AD"
-            android:layout_gravity="center"
-            />
-
-
+            android:layout_gravity="center" />
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

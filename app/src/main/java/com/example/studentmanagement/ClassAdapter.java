@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,24 +40,27 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Classes currentClass = classList.get(position);
         holder.className.setText(currentClass.getClassName_class());
+        holder.Section.setText(currentClass.getSection());
 
-        // Set click listener for each layout in the card view
+        // Set click listener for the student list
         holder.studList.setOnClickListener(v -> {
             Intent intent = new Intent(context, StudentActivity.class);
             intent.putExtra("className", currentClass.getClassName_class());
             context.startActivity(intent);
         });
 
+        // Set click listener for attendance
         holder.studAttendance.setOnClickListener(v -> {
-            //Intent intent = new Intent(context, AttendanceActivity.class);
-            //intent.putExtra("className", currentClass.getClassName_class());
-            //context.startActivity(intent);
+            Intent intent = new Intent(context, AttendanceActivity.class);  // Link to AttendanceActivity
+            intent.putExtra("className", currentClass.getClassName_class());  // Pass the class name
+            context.startActivity(intent);
         });
 
         holder.report.setOnClickListener(v -> {
-            //Intent intent = new Intent(context, ReportActivity.class);
-            //intent.putExtra("className", currentClass.getClassName_class());
-            //context.startActivity(intent);
+            Intent intent = new Intent(context, ReportActivity.class);
+            intent.putExtra("className", currentClass.getClassName_class());
+            intent.putExtra("section", currentClass.getSection());
+            context.startActivity(intent);
         });
 
         holder.editClass.setOnClickListener(v -> {
@@ -66,8 +71,24 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
 
         // Handle delete button click
         holder.deleteClass.setOnClickListener(v -> {
-            deleteClass(currentClass.getClassId(), position); // Call the delete method
+            AlertDialog dialog = new AlertDialog.Builder(context)  // Use AlertDialog from androidx.appcompat.app
+                    .setTitle("Delete Class")
+                    .setMessage("Are you sure you want to delete this class?")
+                    .setPositiveButton("Yes", (dialogInterface, which) -> {
+                        // Call the delete method after user confirms
+                        deleteClass(currentClass.getClassId(), position);
+                    })
+                    .setNegativeButton("No", (dialogInterface, which) -> {
+                        // Dismiss the dialog if the user cancels
+                        dialogInterface.dismiss();
+                    })
+                    .show(); // Show the confirmation dialog
+
+            // Change the button text color to white after showing the dialog
+            //dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(context.getResources().getColor(R.color.white));
+           // dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(context.getResources().getColor(R.color.white));
         });
+
     }
 
     @Override
@@ -77,6 +98,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
 
     public void searchDataList(List<Classes> searchList) {
         this.classList = searchList;
+        notifyDataSetChanged(); // Notify the adapter that the data has changed
     }
 
     // Method to delete a class from Firestore and RecyclerView
@@ -103,12 +125,13 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView className;
+        TextView className,Section;
         LinearLayout studList, studAttendance, report, editClass, deleteClass;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             className = itemView.findViewById(R.id.class_name);
+            Section = itemView.findViewById(R.id.class_section);
             studList = itemView.findViewById(R.id.studList);
             studAttendance = itemView.findViewById(R.id.studAttnd);
             report = itemView.findViewById(R.id.report);

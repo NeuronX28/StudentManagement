@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0.6in"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         app:cardCornerRadius="30dp"
@@ -78,15 +78,32 @@
                 android:gravity="start|center_vertical"
                 android:textColor="@color/black"/>
 
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Save"
-                android:id="@+id/saveButton"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#CF4CE6"
-                app:cornerRadius = "20dp"/>
+            android:id="@+id/saveButton"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#B343C7"
+            android:text="Save"
+            android:textSize="18sp"
+            app:cornerRadius="20dp" />
+            <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#ABAAAB"
+        android:text="Cancel"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+</LinearLayout>
+
+
 
         </LinearLayout>
 

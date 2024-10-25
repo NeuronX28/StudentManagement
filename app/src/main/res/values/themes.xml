@@ -1,9 +1,80 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme for light mode -->
     <style name="Base.Theme.StudentManagement" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Customize your light theme here -->
+
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/purple_900</item>
+        <item name="colorPrimaryVariant">@color/purple_300</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Surface and background -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
+
+
+        <item name="android:textColorHint">#787878</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <!-- Set global font to Poppins -->
+        <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <!-- for alert dialog -->
+    <style name="MyAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <!-- Button text color for light mode -->
+        <item name="android:buttonTint">#000000</item>
+    </style>
+
+
+    <!-- Light Mode Specific Styles -->
+
+    <!-- Screen background for light mode -->
+    <style name="SCREEN">
+        <item name="android:background">#FFFFFF</item> <!-- White background -->
+    </style>
+
+    <!-- Text color for light mode -->
+    <style name="TEXT">
+        <item name="android:textColor">#000000</item> <!-- Black text for readability -->
+    </style>
+
+    <!-- Button background for light mode -->
+    <style name="BUTTON">
+        <item name="android:background">@color/purple_300</item> <!-- Primary button background -->
+        <item name="android:textColor">#FFFFFF</item> <!-- White text on buttons for contrast -->
+    </style>
+
+    <!-- Hint text color for light mode -->
+    <style name="HINT">
+        <item name="android:textColorHint">#5B5B5B</item> <!-- Dark gray for hint text -->
+    </style>
+
+    <!-- Floating Action Button (FAB) Style -->
+    <style name="FAB">
+        <item name="android:backgroundTint">@color/teal_200</item> <!-- Secondary color for FAB -->
+        <item name="android:tint">@color/white</item> <!-- White icon on FAB for visibility -->
+    </style>
+
+    <!-- CardView background for light mode -->
+    <style name="CARD">
+        <item name="android:background">@color/white</item> <!-- White background for cards -->
+        <item name="android:elevation">4dp</item> <!-- Elevation for card shadow effect -->
+    </style>
+
+    <style name="ETEXT">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+
+    <style name="BOX">
+        <item name="android:background">@drawable/roundshape</item>
+    </style>
+    <!-- Overall Theme Declaration -->
     <style name="Theme.StudentManagement" parent="Base.Theme.StudentManagement" />
 </resources>

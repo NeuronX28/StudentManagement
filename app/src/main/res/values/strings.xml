@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">StudentManagement</string>
+    <string name="app_name">Roll Call</string>
+    <string name="profile_image">profile_image</string>
+    <string name="back_icon">Back_icon</string>
+    <string name="home_icon">home_icon</string>
+    <string name="calendar_icon">calendar_icon</string>
+    <string name="profile_icon">profile_icon</string>
 </resources>

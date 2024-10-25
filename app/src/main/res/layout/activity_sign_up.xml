@@ -38,7 +38,7 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Sign up"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="25dp"
 
                 />
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Create a New Account by singing up"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="12sp" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:fontFamily="@font/poppins"
                 android:paddingStart="60dp"
                 android:text="Name"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="13sp" />
 
             <EditText
@@ -72,6 +72,7 @@
                 android:backgroundTint="#FBE5FF"
                 android:fontFamily="@font/poppins"
                 android:hint="enter your name"
+                style="@style/HINT"
                 android:padding="8dp" />
 
             <TextView
@@ -80,8 +81,56 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="60dp"
-                android:text="Emails"
-                android:textColor="@color/black"
+                android:text="Designation"
+                style="@style/TEXT"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/desigSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/roundshape"
+                android:backgroundTint="#FBE5FF"
+                android:fontFamily="@font/poppins"
+                android:hint="enter your designation"
+                style="@style/HINT"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="60dp"
+                android:text="Qualification"
+                style="@style/TEXT"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/QualSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/roundshape"
+                android:backgroundTint="#FBE5FF"
+                android:fontFamily="@font/poppins"
+                android:hint="enter your qualification"
+                style="@style/HINT"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="60dp"
+                android:text="Email"
+                style="@style/TEXT"
                 android:textSize="13sp" />
 
             <EditText
@@ -95,6 +144,7 @@
                 android:backgroundTint="#FBE5FF"
                 android:fontFamily="@font/poppins"
                 android:hint="enter your email"
+                style="@style/HINT"
                 android:padding="8dp" />
 
             <TextView
@@ -104,7 +154,7 @@
                 android:fontFamily="@font/poppins"
                 android:paddingStart="60dp"
                 android:text="phone number"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="13sp" />
 
             <EditText
@@ -118,6 +168,7 @@
                 android:backgroundTint="#FBE5FF"
                 android:fontFamily="@font/poppins"
                 android:hint="+91"
+                style="@style/HINT"
                 android:padding="8dp" />
 
             <TextView
@@ -127,11 +178,13 @@
                 android:fontFamily="@font/poppins"
                 android:paddingStart="60dp"
                 android:text="Password"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="13sp" />
 
             <EditText
                 android:id="@+id/passsign"
+                android:inputType="textPassword"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
@@ -141,6 +194,7 @@
                 android:backgroundTint="#FBE5FF"
                 android:fontFamily="@font/poppins"
                 android:hint="enter your password"
+                style="@style/HINT"
                 android:padding="8dp" />
             <TextView
                 android:layout_width="match_parent"
@@ -149,11 +203,13 @@
                 android:fontFamily="@font/poppins"
                 android:paddingStart="60dp"
                 android:text="Confirm Password"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="13sp" />
 
             <EditText
+
                 android:id="@+id/passconfirmsign"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
@@ -163,6 +219,7 @@
                 android:backgroundTint="#FBE5FF"
                 android:fontFamily="@font/poppins"
                 android:hint="enter your password"
+                style="@style/HINT"
                 android:padding="8dp" />
 
             <Button

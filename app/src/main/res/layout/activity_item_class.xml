@@ -2,18 +2,21 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
-    tools:context=".ClassList"
+    app:cardCornerRadius="20dp"
     android:elevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/roundshape"
-        android:padding="5dp">
+        android:padding="5dp"
+        style="@style/BOX">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <TextView
             android:id="@+id/class_name"
             android:layout_width="wrap_content"
@@ -21,7 +24,18 @@
             android:text="Class Name"
             android:textSize="25dp"
             android:layout_marginLeft="10dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="@style/TEXT"/>
+        <TextView
+            android:id="@+id/class_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Section"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            style="@style/TEXT"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,18 +51,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/stud"
                     android:layout_width="33dp"
                     android:layout_height="33dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_people_24" />
+                    android:src="@drawable/baseline_people_24"
+                    app:tint="?attr/colorOnSurface"/>
 
                 <TextView
                     android:id="@+id/student_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Students"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"
+                    style="@style/TEXT"/>
 
             </LinearLayout>
 
@@ -60,18 +75,19 @@
                 android:layout_marginLeft="10dp">
 
                 <ImageView
-                    android:id="@+id/Attnd"
                     android:layout_width="33dp"
                     android:layout_height="33dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_check_24" />
+                    android:src="@drawable/user"
+                    app:tint="?attr/colorOnSurface"/>
 
                 <TextView
                     android:id="@+id/student_attendance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Attendance"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"
+                    style="@style/TEXT"/>
 
             </LinearLayout>
             <LinearLayout
@@ -79,14 +95,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="15dp">
 
                 <ImageView
-                    android:id="@+id/rep"
                     android:layout_width="33dp"
                     android:layout_height="33dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_download_24" />
+                    android:src="@drawable/baseline_download_24"
+                    app:tint="?attr/colorOnSurface"/>
 
                 <TextView
                     android:id="@+id/download"
@@ -94,7 +110,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Report"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"
+                    style="@style/TEXT"/>
 
             </LinearLayout>
             <LinearLayout
@@ -105,18 +122,19 @@
                 android:layout_marginLeft="15dp">
 
                 <ImageView
-                    android:id="@+id/editC"
                     android:layout_width="33dp"
                     android:layout_height="33dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_edit_24" />
+                    android:src="@drawable/baseline_edit_24"
+                    app:tint="?attr/colorOnSurface"/>
 
                 <TextView
                     android:id="@+id/edit_class"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edit"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"
+                    style="@style/TEXT"/>
 
             </LinearLayout>
             <LinearLayout
@@ -124,21 +142,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="15dp">
 
                 <ImageView
-                    android:id="@+id/deleteC"
                     android:layout_width="33dp"
                     android:layout_height="33dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_delete_outline_24" />
+                    android:src="@drawable/baseline_delete_outline_24"
+                    app:tint="?attr/colorOnSurface"/>
 
                 <TextView
                     android:id="@+id/Delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Delete"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"
+                    style="@style/TEXT"/>
 
             </LinearLayout>
 
